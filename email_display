@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome</h2>
+        <p id="user-email"></p>
+    </div>
+
+    <!-- Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyBcTEVvxXmv5N8dJav4xNDRy5hXZRjVeM4",
+  authDomain: "chatflow-59776.firebaseapp.com",
+  databaseURL: "https://chatflow-59776-default-rtdb.firebaseio.com",
+  projectId: "chatflow-59776",
+  storageBucket: "chatflow-59776.appspot.com",
+  messagingSenderId: "549003131640",
+  appId: "1:549003131640:web:7e14be022adb03142b990d",
+  measurementId: "G-SBZFP7TTLK"
+};
+
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        } else {
+            firebase.app();
+        }
+
+        // Get a reference to the Firebase Auth service
+        const auth = firebase.auth();
+
+        // Check for current user
+        auth.onAuthStateChanged(user => {
+            const userEmailElement = document.getElementById('user-email');
+            if (user) {
+                // User is signed in
+                userEmailElement.textContent = `Signed in as: ${user.email}`;
+            } else {
+                // No user is signed in
+                userEmailElement.textContent = 'No user is signed in.';
+            }
+        });
+    </script>
+</body>
+</html>
