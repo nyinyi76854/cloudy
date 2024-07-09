@@ -78,11 +78,7 @@
 
 
         // Initialize Firebase
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        } else {
-            firebase.app();
-        }
+       firebase.initializeApp(firebaseConfig);
 
         // Get a reference to the Firebase Auth service
         const auth = firebase.auth();
