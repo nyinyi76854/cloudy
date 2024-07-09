@@ -64,28 +64,25 @@
         <div class="error-message" id="error-message"></div>
     </div>
 
-    <!-- Firebase JavaScript SDK -->
+    <!-- Include Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
+    <!-- Your JavaScript code -->
     <script>
-        // Initialize Firebase asynchronously
-       const firebaseConfig = {
-  apiKey: "AIzaSyBLsBTQ1neD4-pZybjhMaMMr4X1Y7f9stc",
-  authDomain: "cloudy-c02ac.firebaseapp.com",
-  projectId: "cloudy-c02ac",
-  storageBucket: "cloudy-c02ac.appspot.com",
-  messagingSenderId: "729506856215",
-  appId: "1:729506856215:web:06d56b828da9c6a72ccb52",
-  measurementId: "G-1MQMPGL2TB"
-};
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLsBTQ1neD4-pZybjhMaMMr4X1Y7f9stc",
+            authDomain: "cloudy-c02ac.firebaseapp.com",
+            projectId: "cloudy-c02ac",
+            storageBucket: "cloudy-c02ac.appspot.com",
+            messagingSenderId: "729506856215",
+            appId: "1:729506856215:web:06d56b828da9c6a72ccb52",
+            measurementId: "G-1MQMPGL2TB"
+        };
 
-        // Check if Firebase app is already initialized
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-
-        // Get a reference to the Firebase Auth service
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
         // Handle sign-up form submission
