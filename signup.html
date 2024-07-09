@@ -64,13 +64,13 @@
         <div class="error-message" id="error-message"></div>
     </div>
 
-    <!-- Firebase App (the core Firebase SDK) -->
+    <!-- Firebase JavaScript SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <!-- Firebase Authentication -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+
     <script>
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
+        // Initialize Firebase asynchronously
+       const firebaseConfig = {
   apiKey: "AIzaSyBLsBTQ1neD4-pZybjhMaMMr4X1Y7f9stc",
   authDomain: "cloudy-c02ac.firebaseapp.com",
   projectId: "cloudy-c02ac",
@@ -80,9 +80,12 @@
   measurementId: "G-1MQMPGL2TB"
 };
 
+        // Check if Firebase app is already initialized
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
+        // Get a reference to the Firebase Auth service
         const auth = firebase.auth();
 
         // Handle sign-up form submission
